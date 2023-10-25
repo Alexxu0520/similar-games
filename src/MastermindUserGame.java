@@ -1,13 +1,13 @@
 import java.util.*;
 
-public class MastermindVersion2 extends GuessingGame{
-    public static Map mapAll = new HashMap();
-    public String s;
-    public int exact;
-    public int partial;
-    public Set setFinal = new HashSet();
-    public int count;
-
+public class MastermindUserGame extends GuessingGame{
+    private Map mapAll = new HashMap();
+    private String s;
+    private int exact;
+    private int partial;
+    private Set setFinal = new HashSet();
+    private int count;
+    // generate secret array to guess
     public  char[] generateSecret(){
         mapAll.put(0, 'R');
         mapAll.put(1, 'G');//R, G, B, Y, O, P
@@ -26,6 +26,7 @@ public class MastermindVersion2 extends GuessingGame{
         }
         return secret;
     }
+    // get the next guess
     public String getGuess() {
         continueLoop:
         while(true) {
@@ -46,6 +47,7 @@ public class MastermindVersion2 extends GuessingGame{
         }
         return s;
     }
+    //compute exact numbers
     public int computeExacts(char[] secret, char[] guess) {
         for (int i = 0; i < 4; i++) {
             if (guess[i] == secret[i]) {
@@ -58,6 +60,7 @@ public class MastermindVersion2 extends GuessingGame{
         System.out.println("exact" + exact);
         return exact;
     }
+    // compute partial numbers
     public int computePartials(char [] secret, char [] guess) {
         for (int i = 0; i < 4; i++) {
             if (setFinal.contains(guess[i])) {
@@ -68,6 +71,7 @@ public class MastermindVersion2 extends GuessingGame{
         System.out.println("partial" + partial);
         return partial;
     }
+    // process all method
     @Override
     public GameRecord play(){
         inputID();
@@ -100,6 +104,7 @@ public class MastermindVersion2 extends GuessingGame{
         partial = 0;
         setFinal.clear();
     }
+    //check if we need a new game
 @Override
     public boolean playNext() {
         System.out.println("A new player want to join or you want to play a new round?");
@@ -111,8 +116,31 @@ public class MastermindVersion2 extends GuessingGame{
             return false;
         }
     }
+
+    @Override
+    //cast to string
+    public String toString() {
+        return "MastermindUserGame{" +
+                "mapAll=" + mapAll +
+                ", s='" + s + '\'' +
+                ", exact=" + exact +
+                ", partial=" + partial +
+                ", setFinal=" + setFinal +
+                ", count=" + count +
+                '}';
+    }
+
+    @Override
+    // provide for sort
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        MastermindUserGame that = (MastermindUserGame) o;
+        return exact == that.exact && partial == that.partial && count == that.count && Objects.equals(mapAll, that.mapAll) && Objects.equals(s, that.s) && Objects.equals(setFinal, that.setFinal);
+    }
     public static void main(String[] args)  {
-        MastermindVersion2 m = new MastermindVersion2();
+        MastermindUserGame m = new MastermindUserGame();
         AllGamesRecord record = m.playAll();
         System.out.println(record);
         System.out.println("The average is "+ record.average());

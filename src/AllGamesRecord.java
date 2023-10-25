@@ -12,10 +12,10 @@ public class AllGamesRecord {
         return "Congratulations";
     }
 
-    List<GameRecord> recordList = new ArrayList<>();
-    int num = 0;
-    int playerSum = 0;
-    int sum;
+    private List<GameRecord> recordList = new ArrayList<>();
+    private int num = 0;
+    private int playerSum = 0;
+    private int sum;
     //adds a GameRecord to the AllGamesRecord
     public void add(GameRecord gr){
         recordList.add(gr);
@@ -43,7 +43,7 @@ public class AllGamesRecord {
         sort(recordList);
         List<GameRecord> high = new ArrayList<>();
         for(int i = 0; i < n; i++){
-        high.add(recordList.get(i));
+            high.add(recordList.get(i));
         }
         return high;
     }
@@ -62,5 +62,13 @@ public class AllGamesRecord {
             highPlayer.add(player.get(i));
         }
         return highPlayer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AllGamesRecord that = (AllGamesRecord) o;
+        return num == that.num && playerSum == that.playerSum && sum == that.sum && Objects.equals(recordList, that.recordList);
     }
 }

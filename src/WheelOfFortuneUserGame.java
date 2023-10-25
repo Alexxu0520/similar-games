@@ -3,15 +3,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 public class WheelOfFortuneUserGame extends GuessingGame{
-    public int left = 3;
-    boolean needNewGamePlayer = true;
-    boolean needNewPhrase = true;
-    List<String> phraseList = null;
-    public String phrase;//String phrase
-    public char[] hiddenArray;//para
-    public char[] newArray;//para
-    public char guess;
-    public Map<Integer,Character> map = new HashMap<>();
+    private int left = 3;
+    private boolean needNewGamePlayer = true;
+    private boolean needNewPhrase = true;
+    private List<String> phraseList = null;
+    private String phrase;//String phrase
+    private char[] hiddenArray;//para
+    private char[] newArray;//para
+    private char guess;
     // returns the initial hidden phrase
     public void generateHiddenPhrase() {
         StringBuilder sb = new StringBuilder();
@@ -28,6 +27,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         System.out.println(hiddenPhrase);
         hiddenArray = hiddenPhrase.toCharArray();
     }
+    // process all methods
     public void processGuess() {
         char[] originalArray = phrase.toCharArray();
         newArray = Arrays.copyOf(hiddenArray, hiddenArray.length);
@@ -43,6 +43,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         System.out.println(newArray);
         System.out.println(originalArray);
     }
+    // generate random phrase for guess
     public boolean randomPhrase() {
         if(needNewPhrase == true){
             left = 3;
@@ -68,6 +69,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         return true;
         //replaced with asterisks
     }
+    // process all methods
     @Override
     public GameRecord play(){
         if(needNewGamePlayer == true){
@@ -76,9 +78,6 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         }
             int count = 0;
             boolean a = randomPhrase();
-//        if(!a){
-//            return gameRecord;
-//        }
             generateHiddenPhrase();
             Set set = new HashSet();
             while (true) {
@@ -111,6 +110,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
             return deepCopy();
         }
     @Override
+    //decide if we need a new game
     public boolean playNext() {
         if (left == 0) {
             System.out.println("No more phrases");
@@ -144,6 +144,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         }
         return false;
     }
+    //get the next guess
     public char getGuess(){
         while (true) {
             String s = input();
@@ -158,6 +159,30 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         }
         return guess;
     }
+// provide for sort
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        WheelOfFortuneUserGame that = (WheelOfFortuneUserGame) o;
+        return left == that.left && needNewGamePlayer == that.needNewGamePlayer && needNewPhrase == that.needNewPhrase && guess == that.guess && Objects.equals(phraseList, that.phraseList) && Objects.equals(phrase, that.phrase) && Arrays.equals(hiddenArray, that.hiddenArray) && Arrays.equals(newArray, that.newArray);
+    }
+// provide for println
+    @Override
+    public String toString() {
+        return "WheelOfFortuneUserGame{" +
+                "left=" + left +
+                ", needNewGamePlayer=" + needNewGamePlayer +
+                ", needNewPhrase=" + needNewPhrase +
+                ", phraseList=" + phraseList +
+                ", phrase='" + phrase + '\'' +
+                ", hiddenArray=" + Arrays.toString(hiddenArray) +
+                ", newArray=" + Arrays.toString(newArray) +
+                ", guess=" + guess +
+                '}';
+    }
+
     public static void main(String[] args)  {
         WheelOfFortuneUserGame wf = new WheelOfFortuneUserGame();
         AllGamesRecord record = wf.playAll();
