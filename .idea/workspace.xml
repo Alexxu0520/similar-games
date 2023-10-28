@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ff8de1b-f989-46c3-be6f-45f44035f432" name="Changes" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AllGamesRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AllGamesRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GuessingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GuessingGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MastermindVersion2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MastermindUserGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WheelOfFortuneUserGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WheelOfFortuneUserGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +57,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698193396108</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new">
+      <option name="closed" value="true" />
+      <created>1698211205828</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698211205828</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

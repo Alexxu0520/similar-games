@@ -44,7 +44,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         System.out.println(originalArray);
     }
     // generate random phrase for guess
-    public boolean randomPhrase() {
+    public void randomPhrase() {
         if(needNewPhrase == true){
             left = 3;
             needNewPhrase = false;
@@ -64,9 +64,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
         }
         else{
             System.out.println("No more phrases");
-            return false;
         }
-        return true;
         //replaced with asterisks
     }
     // process all methods
@@ -77,7 +75,7 @@ public class WheelOfFortuneUserGame extends GuessingGame{
             inputID();
         }
             int count = 0;
-            boolean a = randomPhrase();
+            randomPhrase();
             generateHiddenPhrase();
             Set set = new HashSet();
             while (true) {
