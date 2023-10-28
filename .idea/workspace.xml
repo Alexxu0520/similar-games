@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ff8de1b-f989-46c3-be6f-45f44035f432" name="Changes" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WheelOfFortuneUserGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WheelOfFortuneUserGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698211205828</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new">
+      <option name="closed" value="true" />
+      <created>1698468370300</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698468370300</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

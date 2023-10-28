@@ -29,6 +29,8 @@ public class AllGamesRecord {
     }
     //average(playerId) -- returns the average score for all games of a particular player
     public Integer average(String playerId){
+        num = 0;
+        playerSum = 0;
         for(GameRecord g : recordList){
             if(playerId == g.id){
                 playerSum += g.score;
